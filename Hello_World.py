@@ -190,10 +190,81 @@ print(digits)
 
 #大数列表测试
 Grootnummer_list = []
-for value in range(1,1000001):
+for value in range(1,1001):
+#本来这里是百万单位，但是为了下面运算不用等我这里改成了一千
 	nummer = value
 	Grootnummer_list.append(nummer)
-print(Grootnummer_list)#生成列表计算耗时2.6秒
+print(Grootnummer_list)#生成百万单位列表计算耗时2.6秒
 print(min(Grootnummer_list))
 print(max(Grootnummer_list))
 print(sum(Grootnummer_list))
+#切片处理
+Players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(Players[0:3])
+#切片也就是选取列表的一部分元素，指定索引的两个位置进行切片。
+#切片如果省略索引头，就会自动从第一个元素开始
+#省略索引尾，则会终止于最后一个元素。
+#使用负数作为索引头，则可以输出列表末尾的任意切片，也就是倒数几名
+#切片可以同时省略索引头和索引尾，这样可以输出整个列表为副本
+
+#遍历切片：for 循环
+print("Here are the first three players on my team")
+for player in Players[:3]:
+	print(player.title())
+
+my_foods = Food_list[:]
+friend_foods = my_foods[:]
+
+print("My favorite foods are:")
+print(my_foods)
+
+print("\nMy friend's favorite foods are:")
+print(friend_foods)
+
+#下面来核实经过上面的操作后确实有两个列表
+my_foods.append('cannelloni')
+friend_foods.append('ice cream')
+
+print("My favorite foods are:")
+print(my_foods)
+
+print("\nMy friend's favorite foods are:")
+print(friend_foods)
+
+#元组
+#列表适于储存变化的数据集，列表是可修改的
+#例如网站用户列表或游戏角色列表
+#而元组是一系列不可修改的元素，尝试修改元组的操作是被禁止的会报错。
+#如果元组内只有一个元素，这个元素后也必须加逗号，我也不知道为啥
+
+dimensions = (200,50)#使用圆括号而不是方括号
+print(dimensions[0])
+print(dimensions[1])
+
+#当然你硬要修改的话，只能重新定义元组了。
+dimensions = (200, 50)
+print("Original dimensions:")
+for dimension in dimensions:
+	print(dimension)
+
+dimensions = (400, 100)
+print("\nModified dimensions:")
+for dimension in dimensions:
+	print(dimension)
+
+#设置代码格式——PEP8
+#代码被阅读的次数比编写的次数多得多，尤其是要分享给其他程序员时
+#在python这里，易读性比易写性更重要
+
+##缩进
+##每级缩进四个空格
+##你可以用制表符，但是制表符需要设置成等于四个空格
+##当混用制表符和空格时，应当将所有的制表符转换为空格
+
+##行长
+##没有固定限制，但是绝对不要出现那种需要左右拖动的屎条代码行
+
+##空行
+##空行这个也没有固定限制，你只要记住添加空行的目的为了增加可读性就行了
+
+#后面的章节要开始介绍if语句了，我会再开一个.py继续接下来的练习
