@@ -241,4 +241,48 @@ for key, value in User_0.items():
 	print(f"\nKey: {key}")
 	print(f"Value: {value}\n")
 #这里用到了items()函数，items函数的功能是用来生成包含字典内所有键值对的列表
-#键值对格式为key, value，前者为key，后者为值
+#键值对格式为key, value，前者为key，后者为值，你可以用别的代名来赋给这两个位置
+#不过为了学习的时候不混淆，我们上面就用key和value
+#下面来看一个例子
+for name, language in favorite_languages.items():
+	print(f"{name.title()}'s favorite language is {language.title()}")
+#上面就是用其他代名来指代key和value，这样在遍历的时候就可以一句话成型
+#即使字典存储的是百万级别量级的数据，这种循环也管用
+
+#遍历字典中的所有键
+#我们有的时候不需要使用字典的值，函数keys()就很管用。
+for name in favorite_languages.keys():
+	print(name.title())
+#同理values也一样
+for language in favorite_languages.values():
+	print(language.title())
+
+#下面展示一下这个函数的常用用法：
+friends = ['phil', 'sarah']
+for name in favorite_languages.keys():
+	print(f"Hi{name.title()}.")
+	if name in friends:
+		language = favorite_languages[name].title()
+		print(f"\t{name.title()}, I see you love {language}!")
+		#这里的\t是tab的意思
+#还可检查某个人是否在列表里，使用if not in命令即可
+if 'erin' not in favorite_languages.keys():
+	print("Erin, please take our poll!")
+
+#按特定顺序遍历字典中的所有键
+for name in sorted(favorite_languages.keys()):
+	print(f"{name.title()}, thank you for taking the poll.")
+	#这里对方法dictiionary.keys()调用了sorted()函数
+
+#遍历所有值
+#因为上面已经展示过values()了，这里就再展示一个set()函数
+print ("The following languages have been mentioned:")
+for language in set(favorite_languages.values()):
+	print(language.title())
+#对包含重复元素的列表调用set()，可以找出独一无二的元素
+#用这些独一无二的元素可以创建一个没有重复元素的集合
+
+#创建集合
+languages = {'python', 'ruby', 'python', 'c'}
+print(languages)
+#集合也是用大括号来定义的，但是集合不同于列表和字典，它不储存顺序
