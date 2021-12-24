@@ -14,19 +14,23 @@
 #试试看吧
 
 age = ''
-message = input("Please enter your age: ")
-age = age + message
-while age == '':
-    print("User has skipped the entering")
-    break
-while age != '':
-    if age.isdigit():
-        if int(age) >= 18:
-            print("Hello, welcome")
-            break
-        elif int(age) <18:
-            print("You're not allowed to enter!")
-            break
+prompt = "Please enter your age: "
+prompt += "\n(Enter quit to exit)"
+active = True
+while active:
+    age = input(prompt)
+    if age == 'quit':
+        active == False
+        break
+    elif age == '':
+        print("User has skipped the entering")
     else:
-        message_fix = input("Please enter the right age!")
+        if age.isdigit():
+            if int(age) >= 18:
+                print("Hello, welcome")                
+            elif int(age) < 18:
+                print("You're not allowed to enter!")                
+        else:
+            print(f"Please enter the right information!")
+            
 
